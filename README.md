@@ -1,60 +1,61 @@
-# Bulanık Mantık Projesi - Asansör Bekleme Katı Belirleme
 
-## Proje Tanımı
-Bu proje, **Bulanık Mantık ve Yapay Sinir Ağlarına Giriş** dersi kapsamında hazırlanmıştır. Projenin amacı, bir asansörün bekleyeceği katı belirlemek için trafik türü ve katlarda bekleyen yolcu sayısı gibi değişkenlerin bulanık mantık modeliyle değerlendirilmesidir.
+# Fuzzy Logic Project - Elevator Waiting Floor Determination
 
----
-
-## Kullanılan Teknolojiler
-- **Java**: Uygulama geliştirme için kullanılmıştır.
-- **Eclipse IDE**: Kodlama ve geliştirme ortamı.
-- **JfuzzyLogic Kütüphanesi**: Bulanık mantık modeli oluşturmak ve çalıştırmak için.
+## Project Description
+This project was prepared as part of the **Introduction to Fuzzy Logic and Artificial Neural Networks** course. The aim of the project is to determine the floor where an elevator should wait by evaluating variables such as traffic type and the number of passengers waiting on each floor using a fuzzy logic model.
 
 ---
 
-## Proje Özellikleri
-1. Kullanıcıdan trafik türü (yukarı yoğun, aşağı yoğun, dengeli) ve yolcu sayısı bilgileri alınır.
-2. Girdiler, JfuzzyLogic ile hazırlanan bir FCL dosyasına gönderilir.
-3. FCL dosyası, bulanık mantık kurallarını kullanarak asansörün bekleyeceği katı belirler.
-4. Çıktı, uygulama ekranında gösterilir.
+## Technologies Used
+- **Java**: Used for application development.
+- **Eclipse IDE**: Coding and development environment.
+- **JfuzzyLogic Library**: Used to create and execute the fuzzy logic model.
 
 ---
 
-## Gerekli Dosyalar
-- **Kod Dosyaları**: Java kodları, Eclipse projesi içinde bulunur.
-- **FCL Dosyası**: JfuzzyLogic için oluşturulan bulanık model kurallarını içerir.
-- **Rapor**: Projenin teorik altyapısını, kullanılan üyelik fonksiyonlarını ve girdiler/çıktılar ile ilgili detaylı açıklamaları içerir.
+## Project Features
+1. User inputs traffic type (upward-heavy, downward-heavy, balanced) and the number of passengers.
+2. Inputs are sent to an FCL file prepared using JfuzzyLogic.
+3. The FCL file determines the elevator waiting floor using fuzzy logic rules.
+4. The output is displayed on the application screen.
 
 ---
 
-## Proje Yapısı
+## Required Files
+- **Code Files**: Java codes are included in the Eclipse project.
+- **FCL File**: Contains fuzzy model rules for JfuzzyLogic.
+- **Report**: Includes the theoretical background of the project, membership functions used, and detailed explanations about inputs/outputs.
+
+---
+## Project Structure
 ```
-Proje Klasörü:
+Project Folder:
 ├── src/
-│   ├── Main.java         # Proje ana sınıfı
-│   └── AsansorModel.java # Bulanık model sınıfı
+│   ├── Main.java         # Main class of the project
+│   └── ElevatorModel.java # Fuzzy model class
 ├── fuzzy/
-│   └── asansor_model.fcl # FCL dosyası
-├── rapor.pdf             # Projeye ait detaylı rapor
-└── README.md             # Proje tanıtımı
+│   └── elevator_model.fcl # FCL file
+├── report.pdf             # Detailed project report
+└── README.md             # Project introduction
 ```
 
 ---
 
-## Kurulum ve Çalıştırma
-1. **Eclipse IDE'yi İndirin ve Kurun**: [Eclipse IDE İndir](https://www.eclipse.org/downloads/)
-2. **Proje Dosyalarını Açın**: Eclipse üzerinden projeyi açın.
-3. **JfuzzyLogic Kütüphanesini Ekleyin**: JfuzzyLogic .jar dosyasını projeye dahil edin.
+## Installation and Execution
+1. **Download and Install Eclipse IDE**: [Download Eclipse IDE](https://www.eclipse.org/downloads/)
+2. **Open Project Files**: Open the project via Eclipse.
+3. **Add JfuzzyLogic Library**: Include the JfuzzyLogic .jar file in the project.
    - [JfuzzyLogic GitHub](https://github.com/amel-github/fuzzy)
-4. **FCL Dosyasını Ekleyin**: `asansor_model.fcl` dosyasını proje yoluna yerleştirin.
-5. **Main.java Dosyasını Çalıştırın**: Eclipse IDE üzerinde projeyi çalıştırın ve kullanıcıdan girdi sağlayın.
+4. **Include FCL File**: Place the `elevator_model.fcl` file in the project path.
+5. **Run Main.java**: Run the project via Eclipse IDE and provide user inputs.
 
 ---
+## Example Input and Output
 
-## Örnek Çıktılar
-- Girdi: 
-  - Trafik Türü: Dengeli
-  - Yolcu Sayısı: 15
-- Çıktı: Asansör bekleme katı: 3
+### Example Input
+1. **Traffic Type**: Upward-heavy
+2. **Number of Passengers**: 15
 
----
+### Example Output
+- **Elevator Waiting Floor**: 5
+
