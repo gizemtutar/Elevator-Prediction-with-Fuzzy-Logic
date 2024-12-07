@@ -38,3 +38,23 @@ Proje Klasörü:
 ├── rapor.pdf             # Projeye ait detaylı rapor
 └── README.md             # Proje tanıtımı
 ```
+
+---
+
+## Kurulum ve Çalıştırma
+1. **Eclipse IDE'yi İndirin ve Kurun**: [Eclipse IDE İndir](https://www.eclipse.org/downloads/)
+2. **Proje Dosyalarını Açın**: Eclipse üzerinden projeyi açın.
+3. **JfuzzyLogic Kütüphanesini Ekleyin**: JfuzzyLogic .jar dosyasını projeye dahil edin.
+   - [JfuzzyLogic GitHub](https://github.com/amel-github/fuzzy)
+4. **FCL Dosyasını Ekleyin**: `asansor_model.fcl` dosyasını proje yoluna yerleştirin.
+5. **Main.java Dosyasını Çalıştırın**: Eclipse IDE üzerinde projeyi çalıştırın ve kullanıcıdan girdi sağlayın.
+
+---
+
+## Örnek Çıktılar
+- Girdi: 
+  - Trafik Türü: Dengeli
+  - Yolcu Sayısı: 15
+- Çıktı: Asansör bekleme katı: 3
+
+---
