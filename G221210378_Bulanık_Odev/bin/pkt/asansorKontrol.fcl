@@ -1,0 +1,52 @@
+FUNCTION_BLOCK asansorKontrol
+
+// Giriş Değişkenleri
+VAR_INPUT
+    trafikTuru : REAL;  // Trafik Türü (1: Yukarı yoğun, 2: Aşağı yoğun, 3: Dengeli)
+    yolcuSayisi : REAL;  // Yolcu Sayısı (0-100 arasında)
+END_VAR
+
+// Çıkış Değişkeni
+VAR_OUTPUT
+    asansorKati : REAL;  // Asansörün bekleyeceği kat (0-10 arasında)
+END_VAR
+
+// Üyelik Fonksiyonları
+FUZZIFY trafikTuru
+    TERM yukariYogun := (0, 0) (1, 1) (2, 0);
+    TERM asagiYogun := (1, 0) (2, 1) (3, 0);
+    TERM dengeli := (2, 0) (3, 1) (4, 0);
+END_FUZZIFY
+
+FUZZIFY yolcuSayisi
+    TERM az := (0, 1) (25, 1) (50, 0);
+    TERM orta := (25, 0) (50, 1) (75, 0);
+    TERM cok := (50, 0) (75, 1) (100, 1);
+END_FUZZIFY
+
+// Çıkış Üyelik Fonksiyonları
+DEFUZZIFY asansorKati
+    TERM altKat := (0, 1) (3, 1) (5, 0);
+    TERM ortaKat := (3, 0) (5, 1) (7, 0);
+    TERM ustKat := (5, 0) (7, 1) (10, 1);
+    METHOD : COG;  // COG metodu sabit olarak kullanılacak
+    DEFAULT := 5;
+END_DEFUZZIFY
+
+// Kurallar
+RULEBLOCK kurallar
+    AND : MIN;
+    ACT : MIN; 
+    ACCU : MAX;
+    RULE 1 : IF trafikTuru IS yukariYogun AND yolcuSayisi IS cok THEN asansorKati IS ustKat;
+    RULE 2 : IF trafikTuru IS asagiYogun AND yolcuSayisi IS az THEN asansorKati IS altKat;
+    RULE 3 : IF trafikTuru IS dengeli AND yolcuSayisi IS orta THEN asansorKati IS ortaKat;
+    RULE 4 : IF trafikTuru IS yukariYogun AND yolcuSayisi IS az THEN asansorKati IS ortaKat;
+    RULE 5 : IF trafikTuru IS yukariYogun AND yolcuSayisi IS orta THEN asansorKati IS ortaKat;
+    RULE 6 : IF trafikTuru IS asagiYogun AND yolcuSayisi IS orta THEN asansorKati IS altKat;
+    RULE 7 : IF trafikTuru IS asagiYogun AND yolcuSayisi IS cok THEN asansorKati IS ortaKat;
+    RULE 8 : IF trafikTuru IS dengeli AND yolcuSayisi IS cok THEN asansorKati IS ortaKat;
+    RULE 9 : IF trafikTuru IS dengeli AND yolcuSayisi IS az THEN asansorKati IS altKat;
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
